@@ -1,28 +1,31 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+# TransFiToken - ERC20
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+Este repositorio contiene el contrato inteligente ERC20 para el negocio **TransFi**, una fintech que ofrece soluciones innovadoras para pagos internacionales y servicios financieros digitales.
 
-contract TransFiToken is ERC20 {
-    uint256 public maxTokensPerWallet = 1000 * (10 ** decimals());
+## Sobre TransFi
 
-    constructor(uint256 initialSupply) ERC20("TransFi Token", "TFI") {
-        _mint(msg.sender, initialSupply);
-    }
+TransFi es una empresa pequeña dedicada a facilitar pagos digitales entre pequeñas empresas y freelancers alrededor del mundo. Su objetivo es reducir los costos y la lentitud de las transferencias internacionales mediante el uso de tecnología blockchain y contratos inteligentes.
 
-    // Agregamos una condición: nadie puede tener más de 1000 tokens
-    function _beforeTokenTransfer(
-        address from,
-        address to,
-        uint256 amount
-    ) internal override {
-        super._beforeTokenTransfer(from, to, amount);
+Con el token **TransFi Token (TFI)**, la plataforma ofrece:
 
-        if (to != address(0)) {
-            require(
-                balanceOf(to) + amount <= maxTokensPerWallet,
-                "No puedes tener más de 1000 TFI"
-            );
-        }
-    }
-}
+- Un medio de pago rápido y seguro dentro de la plataforma.
+- Incentivos para usuarios frecuentes con tarifas reducidas y beneficios exclusivos.
+- Una solución accesible para quienes tradicionalmente tienen dificultades para acceder a servicios bancarios internacionales.
+- Transparencia en todas las transacciones gracias a la tecnología blockchain.
+
+## Token ERC20
+
+- **Nombre:** TransFi Token
+- **Símbolo:** TFI
+- **Suministro inicial:** 1,000,000 tokens
+- **Estándar:** ERC20
+
+## Uso
+
+Este contrato crea un token compatible con el estándar ERC20 que puede ser usado dentro del ecosistema de TransFi para pagos, recompensas y transferencia de valor de manera descentralizada.
+
+---
+
+## Referencias
+
+- Contrato basado en la librería OpenZeppelin para garantizar seguridad y cumplimiento de estándares.
