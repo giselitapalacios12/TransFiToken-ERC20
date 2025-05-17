@@ -26,10 +26,6 @@ Este contrato crea un token compatible con el estándar ERC20 que puede ser usad
 
 ---
 
-## Referencias
-
-- Contrato basado en la librería OpenZeppelin para garantizar seguridad y cumplimiento de estándares.
-  
 ## Condiciones del Token
 
 - Ningún usuario puede tener más de **1000 TFI tokens** en su wallet, Si se pasa, la transacción falla automáticamente y envia un mensaje de alerta. Esto asegura una distribución justa y evita la acumulación excesiva.
